@@ -47,7 +47,7 @@ export default function Home() {
             <ProductCard key={product.id} product={product} />
           ))}
         </div>
-        <div className="text-center mt-12">
+        <div className="flex justify-center mt-12">
           <Button asChild variant="secondary" size="lg">
             <Link href="/products">View All Products</Link>
           </Button>
