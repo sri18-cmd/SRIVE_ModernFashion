@@ -29,7 +29,7 @@ export default function CartPage() {
                 <div className="ml-4 flex-grow">
                   <Link href={`/products/${item.product.id}`} className="font-semibold hover:underline">{item.product.name}</Link>
                   <p className="text-sm text-muted-foreground">Size: {item.size}</p>
-                  <p className="text-sm text-muted-foreground">Price: ${item.product.price.toFixed(2)}</p>
+                  <p className="text-sm text-muted-foreground">Price: ₹{item.product.price.toFixed(2)}</p>
                 </div>
                 <div className="flex items-center gap-4 mx-4">
                   <Input 
@@ -56,7 +56,7 @@ export default function CartPage() {
               <CardContent className="space-y-4">
                 <div className="flex justify-between">
                   <span>Subtotal ({cartCount} items)</span>
-                  <span>${cartTotal.toFixed(2)}</span>
+                  <span>₹{cartTotal.toFixed(2)}</span>
                 </div>
                 <div className="flex justify-between">
                   <span>Shipping</span>
@@ -65,7 +65,7 @@ export default function CartPage() {
                 <Separator />
                 <div className="flex justify-between font-bold text-lg">
                   <span>Total</span>
-                  <span>${cartTotal.toFixed(2)}</span>
+                  <span>₹{cartTotal.toFixed(2)}</span>
                 </div>
               </CardContent>
               <CardFooter>

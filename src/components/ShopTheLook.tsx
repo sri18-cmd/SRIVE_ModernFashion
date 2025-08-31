@@ -52,7 +52,7 @@ export function ShopTheLook() {
                       <div className="flex-grow">
                         <h4 className="font-semibold">{item.name}</h4>
                         <p className="text-sm text-muted-foreground">
-                          ${item.price.toFixed(2)}
+                          ₹{item.price.toFixed(2)}
                         </p>
                       </div>
                       <ArrowRight className="h-5 w-5 text-muted-foreground" />

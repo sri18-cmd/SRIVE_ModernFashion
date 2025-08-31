@@ -72,7 +72,7 @@ export default function ProductDetailPage({ params }: { params: { id: string } }
         {/* Product Details */}
         <div>
           <h1 className="text-3xl lg:text-4xl font-bold tracking-tight">{product.name}</h1>
-          <p className="mt-2 text-2xl font-semibold">${product.price.toFixed(2)}</p>
+          <p className="mt-2 text-2xl font-semibold">₹{product.price.toFixed(2)}</p>
           <p className="mt-4 text-muted-foreground">{product.description}</p>
 
           <div className="mt-6">

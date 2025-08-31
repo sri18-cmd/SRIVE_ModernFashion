@@ -47,7 +47,7 @@ export default function CheckoutPage() {
       lastName: "",
       address: "",
       city: "",
-      country: "United States",
+      country: "India",
       postalCode: "",
       cardName: "",
       cardNumber: "",
@@ -145,18 +145,18 @@ export default function CheckoutPage() {
                          <p className="text-muted-foreground">Qty: {item.quantity}</p>
                        </div>
                     </div>
-                    <span>${(item.product.price * item.quantity).toFixed(2)}</span>
+                    <span>₹{(item.product.price * item.quantity).toFixed(2)}</span>
                   </div>
                 ))}
                 <Separator />
                 <div className="flex justify-between font-bold text-lg">
                   <span>Total</span>
-                  <span>${cartTotal.toFixed(2)}</span>
+                  <span>₹{cartTotal.toFixed(2)}</span>
                 </div>
               </CardContent>
             </Card>
              <Button type="submit" size="lg" className="w-full mt-6">
-                Pay ${cartTotal.toFixed(2)}
+                Pay ₹{cartTotal.toFixed(2)}
              </Button>
           </div>
 
