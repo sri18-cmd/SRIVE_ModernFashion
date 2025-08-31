@@ -23,14 +23,14 @@ export type StylePreferencesInput = z.infer<typeof StylePreferencesInputSchema>;
 
 const StyleRecommendationsOutputSchema = z.object({
   products: z
-    .string()
+    .array(z.string())
     .describe(
-      'A list of product recommendations based on the user\s style preferences.'
+      'A list of 3-5 specific product recommendations based on the user\'s style preferences. For example: "A-line linen skirt".'
     ),
   outfits: z
-    .string()
+    .array(z.string())
     .describe(
-      'A list of outfit recommendations based on the user\s style preferences.'
+      'A list of 2-3 complete outfit ideas based on the user\'s style preferences. For example: "A tailored blazer paired with straight-leg jeans and ankle boots."'
     ),
 });
 export type StyleRecommendationsOutput = z.infer<typeof StyleRecommendationsOutputSchema>;
@@ -45,14 +45,17 @@ const prompt = ai.definePrompt({
   name: 'styleRecommendationPrompt',
   input: {schema: StylePreferencesInputSchema},
   output: {schema: StyleRecommendationsOutputSchema},
-  prompt: `You are a personal stylist. Given the following style preferences, recommend products and outfits.
+  prompt: `You are a personal stylist for an e-commerce fashion brand called Srive. Your goal is to provide helpful, concise, and inspiring recommendations to users based on their stated style.
+
+Analyze the following style preferences and generate a list of product recommendations and a few complete outfit ideas.
 
 Style Preferences: {{{stylePreferences}}}
 
-Products: A list of products matching the style preferences.
-Outfits: A list of outfits matching the style preferences.
+Please return your response in a valid JSON object with two keys: "products" and "outfits".
+- The "products" key should have a JSON array of 3-5 specific product recommendations.
+- The "outfits" key should have a JSON array of 2-3 complete outfit ideas.
 
-Return the products and outfits in a JSON format.
+Do not include any introductory text or pleasantries in your response. Only return the JSON object.
 `,
 });
 

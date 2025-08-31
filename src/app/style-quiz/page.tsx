@@ -16,13 +16,7 @@ const examples = [
 ];
 
 const RecommendationsDisplay = ({ recommendations }: { recommendations: StyleRecommendationsOutput }) => {
-    const parseList = (list: string | undefined) => {
-        if (!list) return [];
-        return list.split('\n').map(item => item.trim().replace(/^-/,'').trim()).filter(Boolean);
-    };
-
-    const recommendedProducts = parseList(recommendations.products);
-    const recommendedOutfits = parseList(recommendations.outfits);
+    const { products: recommendedProducts = [], outfits: recommendedOutfits = [] } = recommendations;
 
     return (
         <div className="grid md:grid-cols-2 gap-6 mt-6">
@@ -31,11 +25,13 @@ const RecommendationsDisplay = ({ recommendations }: { recommendations: StyleRec
                     <CardTitle>Recommended Products</CardTitle>
                 </CardHeader>
                 <CardContent>
-                    <ul className="list-disc pl-5 space-y-2">
-                        {recommendedProducts.map((item, index) => (
-                            <li key={index}>{item}</li>
-                        ))}
-                    </ul>
+                    {recommendedProducts.length > 0 ? (
+                        <ul className="list-disc pl-5 space-y-2">
+                            {recommendedProducts.map((item, index) => (
+                                <li key={index}>{item}</li>
+                            ))}
+                        </ul>
+                    ) : <p className="text-muted-foreground">No product recommendations available.</p> }
                 </CardContent>
             </Card>
             <Card>
@@ -43,11 +39,13 @@ const RecommendationsDisplay = ({ recommendations }: { recommendations: StyleRec
                     <CardTitle>Outfit Ideas</CardTitle>
                 </CardHeader>
                 <CardContent>
-                    <ul className="list-disc pl-5 space-y-2">
-                         {recommendedOutfits.map((item, index) => (
-                            <li key={index}>{item}</li>
-                        ))}
-                    </ul>
+                    {recommendedOutfits.length > 0 ? (
+                        <ul className="list-disc pl-5 space-y-2">
+                            {recommendedOutfits.map((item, index) => (
+                                <li key={index}>{item}</li>
+                            ))}
+                        </ul>
+                    ) : <p className="text-muted-foreground">No outfit ideas available.</p> }
                 </CardContent>
             </Card>
         </div>
