@@ -145,16 +145,6 @@ export function Header() {
         </div>
         
         <div className="flex items-center space-x-2">
-            {!loading && (
-                user ? <UserNav user={user} /> : (
-                    <Button asChild variant="ghost" size="icon" aria-label="User Profile">
-                      <Link href="/login">
-                        <User className="h-5 w-5" />
-                      </Link>
-                    </Button>
-                )
-            )}
-
             <Button asChild variant="ghost" size="icon" className="relative" aria-label="Wishlist">
               <Link href="/wishlist">
                 <Heart className="h-5 w-5" />
@@ -172,6 +162,17 @@ export function Header() {
                 )}
               </Link>
             </Button>
+            
+            {!loading && (
+                user ? <UserNav user={user} /> : (
+                    <Button asChild variant="ghost" size="icon" aria-label="User Profile">
+                      <Link href="/login">
+                        <User className="h-5 w-5" />
+                      </Link>
+                    </Button>
+                )
+            )}
+            
             <Button variant="ghost" size="icon" aria-label="Search">
               <Search className="h-5 w-5" />
             </Button>
