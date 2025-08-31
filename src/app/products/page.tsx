@@ -14,22 +14,43 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { Label } from '@/components/ui/label';
 import { Slider } from '@/components/ui/slider';
 import { Button } from '@/components/ui/button';
+import { Separator } from '@/components/ui/separator';
 
-const categories = [...new Set(allProducts.map((p) => p.category))];
+const allCategories = [...new Set(allProducts.map((p) => p.category))];
 const sizes = [...new Set(allProducts.flatMap((p) => p.sizes))];
 const colors = [...new Set(allProducts.flatMap((p) => p.colors))];
 const maxPrice = Math.ceil(Math.max(...allProducts.map(p => p.price)));
 
+const ProductSection = ({ title, products }: { title: string, products: Product[] }) => {
+  if (products.length === 0) return null;
+  return (
+    <section className="space-y-8">
+      <h2 className="text-3xl font-bold tracking-tight">{title}</h2>
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8">
+        {products.map((product) => (
+          <ProductCard key={product.id} product={product} />
+        ))}
+      </div>
+    </section>
+  );
+};
+
 export default function ProductsPage() {
   const [filteredProducts, setFilteredProducts] = useState<Product[]>(allProducts);
   const [priceRange, setPriceRange] = useState([0, maxPrice]);
-  
-  // In a real app, filters would be part of state management (e.g., URL params)
-  // For this scaffold, we'll keep it simple.
 
   const handlePriceChange = (value: number[]) => {
     setPriceRange(value);
   }
+  
+  const productsByCat = allProducts.reduce((acc, product) => {
+    if (!acc[product.category]) {
+      acc[product.category] = [];
+    }
+    acc[product.category].push(product);
+    return acc;
+  }, {} as Record<string, Product[]>);
+
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -39,7 +60,7 @@ export default function ProductsPage() {
           Find your next favorite piece from our curated collections.
         </p>
       </header>
-      <div className="grid lg:grid-cols-4 gap-8">
+      <div className="grid lg:grid-cols-4 gap-12">
         <aside className="lg:col-span-1">
           <div className="sticky top-24">
             <h2 className="text-2xl font-semibold mb-4">Filters</h2>
@@ -47,7 +68,7 @@ export default function ProductsPage() {
               <AccordionItem value="category">
                 <AccordionTrigger>Category</AccordionTrigger>
                 <AccordionContent className="space-y-2">
-                  {categories.map((category) => (
+                  {allCategories.map((category) => (
                     <div key={category} className="flex items-center space-x-2">
                       <Checkbox id={`cat-${category}`} />
                       <Label htmlFor={`cat-${category}`}>{category}</Label>
@@ -98,12 +119,14 @@ export default function ProductsPage() {
           </div>
         </aside>
 
-        <main className="lg:col-span-3">
-          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8">
-            {filteredProducts.map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))}
-          </div>
+        <main className="lg:col-span-3 space-y-16">
+           <ProductSection title="Outerwear" products={productsByCat['Outerwear'] || []} />
+           <ProductSection title="Knitwear" products={productsByCat['Knitwear'] || []} />
+           <ProductSection title="Shirts" products={productsByCat['Shirts'] || []} />
+           <ProductSection title="T-Shirts" products={productsByCat['T-Shirts'] || []} />
+           <ProductSection title="Trousers" products={productsByCat['Trousers'] || []} />
+           <ProductSection title="Shoes" products={productsByCat['Shoes'] || []} />
+           <ProductSection title="Accessories" products={productsByCat['Accessories'] || []} />
         </main>
       </div>
     </div>
