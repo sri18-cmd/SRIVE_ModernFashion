@@ -16,3 +16,15 @@ export type CartItem = {
   size: string;
   quantity: number;
 };
+
+export interface Order {
+  id: string;
+  date: string;
+  status: 'Processing' | 'Shipped' | 'Delivered' | 'Cancelled';
+  total: number;
+  items: {
+    product: Product;
+    quantity: number;
+    size: string;
+  }[];
+}

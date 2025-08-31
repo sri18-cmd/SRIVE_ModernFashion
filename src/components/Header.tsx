@@ -63,6 +63,10 @@ function UserNav({ user }: { user: FirebaseUser }) {
                     </div>
                 </DropdownMenuLabel>
                 <DropdownMenuSeparator />
+                 <DropdownMenuItem onClick={() => router.push('/profile')}>
+                    <User className="mr-2 h-4 w-4" />
+                    <span>Profile</span>
+                </DropdownMenuItem>
                 <DropdownMenuItem onClick={handleSignOut}>
                     <LogOut className="mr-2 h-4 w-4" />
                     <span>Log out</span>
@@ -105,7 +109,7 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center">
-        <div className="flex items-center gap-4 mr-auto">
+        <div className="flex items-center gap-4 md:gap-8 mr-auto">
           <Sheet open={isMobileMenuOpen} onOpenChange={setMobileMenuOpen}>
             <SheetTrigger asChild>
               <Button
@@ -136,7 +140,7 @@ export function Header() {
             </SheetContent>
           </Sheet>
 
-          <Link href="/" className="flex items-center space-x-2 md:mr-6">
+          <Link href="/" className="flex items-center space-x-2">
             <span className="font-bold text-xl">SRIVE</span>
           </Link>
           <nav className="hidden md:flex items-center space-x-8 text-sm font-medium">

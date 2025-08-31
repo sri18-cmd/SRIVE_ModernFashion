@@ -6,7 +6,7 @@ export const products: Product[] = [
     name: 'Urban Explorer Jacket',
     description:
       'A versatile and stylish jacket designed for the modern urban explorer. Water-resistant fabric with a comfortable inner lining.',
-    price: 149.99,
+    price: 14999,
     images: [
       'https://picsum.photos/seed/jacket1/800/1000',
       'https://picsum.photos/seed/jacket2/800/1000',
@@ -21,7 +21,7 @@ export const products: Product[] = [
     name: 'Flowy Linen Trousers',
     description:
       'Lightweight and breathable linen trousers, perfect for warm weather. Features a relaxed fit and an elasticated waistband for ultimate comfort.',
-    price: 89.99,
+    price: 8999,
     images: [
       'https://picsum.photos/seed/trousers1/800/1000',
       'https://picsum.photos/seed/trousers2/800/1000',
@@ -36,7 +36,7 @@ export const products: Product[] = [
     name: 'Classic Oxford Shirt',
     description:
       'A timeless wardrobe staple. This Oxford shirt is made from 100% premium cotton for a soft feel and a sharp look.',
-    price: 75.0,
+    price: 7500,
     images: [
       'https://picsum.photos/seed/shirt1/800/1000',
       'https://picsum.photos/seed/shirt2/800/1000',
@@ -51,7 +51,7 @@ export const products: Product[] = [
     name: 'Minimalist Leather Tote',
     description:
       'Crafted from genuine Italian leather, this tote bag combines functionality with minimalist elegance. Spacious enough for your daily essentials.',
-    price: 220.0,
+    price: 22000,
     images: [
       'https://picsum.photos/seed/tote1/800/1000',
       'https://picsum.photos/seed/tote2/800/1000',
@@ -66,7 +66,7 @@ export const products: Product[] = [
     name: 'Cashmere Blend Scarf',
     description:
       'Stay warm and stylish with this incredibly soft cashmere blend scarf. The perfect accessory for chilly days.',
-    price: 95.5,
+    price: 9550,
     images: [
       'https://picsum.photos/seed/scarf1/800/1000',
       'https://picsum.photos/seed/scarf2/800/1000',
@@ -81,7 +81,7 @@ export const products: Product[] = [
     name: 'Tailored Wool Blazer',
     description:
       'A beautifully tailored single-breasted blazer made from fine Italian wool. Fully lined with a structured shoulder for a sharp silhouette.',
-    price: 299.99,
+    price: 29999,
     images: [
       'https://picsum.photos/seed/blazer1/800/1000',
       'https://picsum.photos/seed/blazer2/800/1000',
@@ -96,7 +96,7 @@ export const products: Product[] = [
     name: 'Ribbed Knit Sweater',
     description:
       'A cozy and chic ribbed knit sweater with a mock neck design. Made from a soft merino wool blend.',
-    price: 110.0,
+    price: 11000,
     images: [
       'https://picsum.photos/seed/sweater1/800/1000',
       'https://picsum.photos/seed/sweater2/800/1000',
@@ -111,7 +111,7 @@ export const products: Product[] = [
     name: 'Leather Ankle Boots',
     description:
       'Versatile and comfortable, these ankle boots are crafted from smooth leather and feature a sturdy block heel and side zip closure.',
-    price: 180.0,
+    price: 18000,
     images: [
       'https://picsum.photos/seed/boots1/800/1000',
       'https://picsum.photos/seed/boots2/800/1000',
