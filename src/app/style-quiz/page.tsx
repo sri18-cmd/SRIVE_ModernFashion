@@ -16,7 +16,8 @@ const examples = [
 ];
 
 const RecommendationsDisplay = ({ recommendations }: { recommendations: StyleRecommendationsOutput }) => {
-    const parseList = (list: string) => {
+    const parseList = (list: string | undefined) => {
+        if (!list) return [];
         return list.split('\n').map(item => item.trim().replace(/^-/,'').trim()).filter(Boolean);
     };
 

@@ -55,6 +55,7 @@ export function Footer() {
         </div>
         <div className="mt-8 border-t border-border pt-8 text-center text-sm text-muted-foreground">
           <p>&copy; {new Date().getFullYear()} Srive Inc. All rights reserved.</p>
+           <p>Designed and developed by Sri Vasanth Vutukuri</p>
         </div>
       </div>
     </footer>

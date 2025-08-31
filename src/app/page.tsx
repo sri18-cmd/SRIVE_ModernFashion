@@ -4,6 +4,8 @@ import { Button } from '@/components/ui/button';
 import { ProductCard } from '@/components/ProductCard';
 import { products } from '@/lib/mock-data';
 import { ShopTheLook } from '@/components/ShopTheLook';
+import { auth } from '@/lib/firebase';
+import { LogOut, User } from 'lucide-react';
 
 export default function Home() {
   const featuredProducts = products.slice(0, 4);
