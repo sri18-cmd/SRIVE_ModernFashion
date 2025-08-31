@@ -19,6 +19,9 @@ import { useAppContext } from "@/context/AppContext";
 import { useRouter } from "next/navigation";
 import { useToast } from "@/hooks/use-toast";
 import Image from "next/image";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { WalletCards } from "lucide-react";
 
 const formSchema = z.object({
   email: z.string().email(),
@@ -28,11 +31,26 @@ const formSchema = z.object({
   city: z.string().min(1, "City is required"),
   country: z.string().min(1, "Country is required"),
   postalCode: z.string().min(1, "Postal code is required"),
-  cardName: z.string().min(1, "Name on card is required"),
-  cardNumber: z.string().min(16).max(16),
-  expiryDate: z.string().regex(/^(0[1-9]|1[0-2])\/?([0-9]{2})$/, "Invalid expiry date"),
-  cvc: z.string().min(3).max(4),
+  paymentMethod: z.string().default("card"),
+  // Card fields
+  cardName: z.string().optional(),
+  cardNumber: z.string().optional(),
+  expiryDate: z.string().optional(),
+  cvc: z.string().optional(),
+  // UPI field
+  upiId: z.string().optional(),
+  // Net banking field
+  netBankingBank: z.string().optional(),
+}).refine(data => {
+    if (data.paymentMethod === 'card') {
+        return !!data.cardName && !!data.cardNumber && !!data.expiryDate && !!data.cvc;
+    }
+    return true;
+}, {
+    message: "Card details are required",
+    path: ['cardName'], // you can pick any of the card fields
 });
+
 
 export default function CheckoutPage() {
   const { cart, cartTotal, clearCart } = useAppContext();
@@ -49,6 +67,7 @@ export default function CheckoutPage() {
       city: "",
       country: "India",
       postalCode: "",
+      paymentMethod: "card",
       cardName: "",
       cardNumber: "",
       expiryDate: "",
@@ -65,6 +84,8 @@ export default function CheckoutPage() {
     clearCart();
     router.push('/');
   }
+  
+  const paymentMethod = form.watch('paymentMethod');
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -109,23 +130,66 @@ export default function CheckoutPage() {
             <Card className="mt-8">
               <CardHeader>
                 <CardTitle>Payment Details</CardTitle>
-                <p className="text-sm text-muted-foreground">Powered by Razorpay (simulation)</p>
               </CardHeader>
-              <CardContent className="space-y-4">
-                <FormField control={form.control} name="cardName" render={({ field }) => (
-                  <FormItem><FormLabel>Name on Card</FormLabel><FormControl><Input {...field} /></FormControl><FormMessage /></FormItem>
-                )} />
-                <FormField control={form.control} name="cardNumber" render={({ field }) => (
-                  <FormItem><FormLabel>Card Number</FormLabel><FormControl><Input placeholder="---- ---- ---- ----" {...field} /></FormControl><FormMessage /></FormItem>
-                )} />
-                <div className="grid grid-cols-2 gap-4">
-                  <FormField control={form.control} name="expiryDate" render={({ field }) => (
-                    <FormItem><FormLabel>Expiry (MM/YY)</FormLabel><FormControl><Input placeholder="MM/YY" {...field} /></FormControl><FormMessage /></FormItem>
-                  )} />
-                  <FormField control={form.control} name="cvc" render={({ field }) => (
-                    <FormItem><FormLabel>CVC</FormLabel><FormControl><Input placeholder="---" {...field} /></FormControl><FormMessage /></FormItem>
-                  )} />
-                </div>
+              <CardContent>
+                <Tabs defaultValue="card" className="w-full" onValueChange={(value) => form.setValue('paymentMethod', value)}>
+                  <TabsList className="grid w-full grid-cols-2">
+                    <TabsTrigger value="card">Credit/Debit Card</TabsTrigger>
+                    <TabsTrigger value="other">UPI / Net Banking</TabsTrigger>
+                  </TabsList>
+                  <TabsContent value="card" className="pt-4 space-y-4">
+                     <p className="text-sm text-muted-foreground">Powered by Razorpay (simulation)</p>
+                     <FormField control={form.control} name="cardName" render={({ field }) => (
+                      <FormItem><FormLabel>Name on Card</FormLabel><FormControl><Input {...field} /></FormControl><FormMessage /></FormItem>
+                    )} />
+                    <FormField control={form.control} name="cardNumber" render={({ field }) => (
+                      <FormItem><FormLabel>Card Number</FormLabel><FormControl><Input placeholder="---- ---- ---- ----" {...field} /></FormControl><FormMessage /></FormItem>
+                    )} />
+                    <div className="grid grid-cols-2 gap-4">
+                      <FormField control={form.control} name="expiryDate" render={({ field }) => (
+                        <FormItem><FormLabel>Expiry (MM/YY)</FormLabel><FormControl><Input placeholder="MM/YY" {...field} /></FormControl><FormMessage /></FormItem>
+                      )} />
+                      <FormField control={form.control} name="cvc" render={({ field }) => (
+                        <FormItem><FormLabel>CVC</FormLabel><FormControl><Input placeholder="---" {...field} /></FormControl><FormMessage /></FormItem>
+                      )} />
+                    </div>
+                  </TabsContent>
+                  <TabsContent value="other" className="pt-4">
+                    <div className="space-y-6">
+                        <div>
+                            <h3 className="font-medium mb-2">Pay with UPI</h3>
+                            <div className="flex gap-4">
+                                <Button type="button" variant="outline" className="flex-1 justify-start gap-2"><WalletCards/> GPay</Button>
+                                <Button type="button" variant="outline" className="flex-1 justify-start gap-2"><WalletCards/> PhonePe</Button>
+                                <Button type="button" variant="outline" className="flex-1 justify-start gap-2"><WalletCards/> Paytm</Button>
+                            </div>
+                            <div className="relative my-4">
+                                <div className="absolute inset-0 flex items-center"><span className="w-full border-t"></span></div>
+                                <div className="relative flex justify-center text-xs uppercase"><span className="bg-card px-2 text-muted-foreground">OR</span></div>
+                            </div>
+                            <FormField control={form.control} name="upiId" render={({ field }) => (
+                                <FormItem><FormLabel>Enter UPI ID</FormLabel><FormControl><Input placeholder="yourname@bank" {...field} /></FormControl><FormMessage /></FormItem>
+                            )} />
+                        </div>
+                        <Separator/>
+                        <div>
+                            <h3 className="font-medium mb-2">Net Banking</h3>
+                             <FormField
+                                control={form.control}
+                                name="netBankingBank"
+                                render={({ field }) => (
+                                <RadioGroup onValueChange={field.onChange} defaultValue={field.value} className="grid grid-cols-2 gap-2">
+                                  <div className="flex items-center space-x-2"><RadioGroupItem value="sbi" id="sbi" /><Label htmlFor="sbi">SBI Online</Label></div>
+                                  <div className="flex items-center space-x-2"><RadioGroupItem value="hdfc" id="hdfc" /><Label htmlFor="hdfc">HDFC Bank</Label></div>
+                                  <div className="flex items-center space-x-2"><RadioGroupItem value="icici" id="icici" /><Label htmlFor="icici">ICICI Bank</Label></div>
+                                  <div className="flex items-center space-x-2"><RadioGroupItem value="axis" id="axis" /><Label htmlFor="axis">Axis Bank</Label></div>
+                                </RadioGroup>
+                                )}
+                            />
+                        </div>
+                    </div>
+                  </TabsContent>
+                </Tabs>
               </CardContent>
             </Card>
           </div>
