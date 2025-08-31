@@ -109,7 +109,7 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center">
-        <div className="flex items-center gap-4 md:gap-8 mr-auto">
+        <div className="flex items-center gap-4">
           <Sheet open={isMobileMenuOpen} onOpenChange={setMobileMenuOpen}>
             <SheetTrigger asChild>
               <Button
@@ -140,15 +140,17 @@ export function Header() {
             </SheetContent>
           </Sheet>
 
-          <Link href="/" className="flex items-center space-x-2">
+          <Link href="/" className="hidden md:flex items-center space-x-2">
             <span className="font-bold text-xl">SRIVE</span>
           </Link>
+        </div>
+
+        <div className="flex items-center justify-end flex-1 space-x-2">
           <nav className="hidden md:flex items-center space-x-8 text-sm font-medium">
             <NavContent />
           </nav>
-        </div>
-        
-        <div className="flex items-center space-x-2">
+          
+          <div className="flex items-center space-x-2">
             <Button asChild variant="ghost" size="icon" className="relative" aria-label="Wishlist">
               <Link href="/wishlist">
                 <Heart className="h-5 w-5" />
@@ -180,6 +182,7 @@ export function Header() {
             <Button variant="ghost" size="icon" aria-label="Search">
               <Search className="h-5 w-5" />
             </Button>
+          </div>
         </div>
       </div>
     </header>
