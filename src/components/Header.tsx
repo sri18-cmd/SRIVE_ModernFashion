@@ -109,45 +109,16 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center">
-        <div className="flex items-center space-x-2 md:hidden">
-            <Sheet open={isMobileMenuOpen} onOpenChange={setMobileMenuOpen}>
-            <SheetTrigger asChild>
-              <Button
-                variant="ghost"
-                size="icon"
-                className="md:hidden"
-                aria-label="Open menu"
-              >
-                <Menu className="h-5 w-5" />
-              </Button>
-            </SheetTrigger>
-            <SheetContent side="left" className="w-[300px]">
-              <div className="flex flex-col h-full">
-                <div className="flex items-center justify-between border-b pb-4">
-                  <Link href="/" className="flex items-center space-x-2" onClick={() => setMobileMenuOpen(false)}>
-                      <span className="font-bold text-xl">SRIVE</span>
-                  </Link>
-                  <SheetTrigger asChild>
-                    <Button variant="ghost" size="icon" aria-label="Close menu">
-                      <X className="h-5 w-5" />
-                    </Button>
-                  </SheetTrigger>
-                </div>
-                <nav className="flex flex-col space-y-4 mt-6">
-                  <NavContent />
-                </nav>
-              </div>
-            </SheetContent>
-          </Sheet>
-        </div>
-
-        <div className="flex items-center justify-start flex-1 space-x-2">
-           <nav className="hidden md:flex items-center space-x-8 text-sm font-medium">
+        <div className="flex items-center space-x-4">
+           <Link href="/" className="flex items-center space-x-2">
+            <span className="font-bold text-xl">SRIVE</span>
+          </Link>
+          <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
             <NavContent />
           </nav>
         </div>
 
-        <div className="flex items-center space-x-2">
+        <div className="flex flex-1 items-center justify-end space-x-2">
             <Button asChild variant="ghost" size="icon" className="relative" aria-label="Wishlist">
               <Link href="/wishlist">
                 <Heart className="h-5 w-5" />
@@ -179,11 +150,32 @@ export function Header() {
             <Button variant="ghost" size="icon" aria-label="Search">
               <Search className="h-5 w-5" />
             </Button>
+
+             <Sheet open={isMobileMenuOpen} onOpenChange={setMobileMenuOpen}>
+              <SheetTrigger asChild>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="md:hidden"
+                  aria-label="Open menu"
+                >
+                  <Menu className="h-5 w-5" />
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="left" className="w-[300px]">
+                <div className="flex flex-col h-full">
+                  <div className="flex items-center justify-between border-b pb-4">
+                    <Link href="/" className="flex items-center space-x-2" onClick={() => setMobileMenuOpen(false)}>
+                        <span className="font-bold text-xl">SRIVE</span>
+                    </Link>
+                  </div>
+                  <nav className="flex flex-col space-y-4 mt-6">
+                    <NavContent />
+                  </nav>
+                </div>
+              </SheetContent>
+            </Sheet>
           </div>
-          
-          <Link href="/" className="flex items-center space-x-2 ml-6">
-            <span className="font-bold text-xl">SRIVE</span>
-          </Link>
       </div>
     </header>
   );
