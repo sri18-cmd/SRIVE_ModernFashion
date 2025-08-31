@@ -22,6 +22,7 @@ import Image from "next/image";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { WalletCards } from "lucide-react";
+import { Label } from "@/components/ui/label";
 
 const formSchema = z.object({
   email: z.string().email(),
