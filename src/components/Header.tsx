@@ -106,19 +106,32 @@ export function Header() {
     </>
   );
 
+  const Logo = () => (
+    <svg
+      className="h-6 w-6 text-primary"
+      fill="currentColor"
+      viewBox="0 0 100 100"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="M69.7,11.2c-15.6-7.8-38.4,2.2-38.4,21.8c0,12.3,13.8,20.6,28.8,19.3c16.3-1.4,29.9-13.6,29.9-28.9C90,12.7,82.3,17.5,69.7,11.2z M30.3,88.8c15.6,7.8,38.4-2.2,38.4-21.8c0-12.3-13.8-20.6-28.8-19.3C23.7,49.1,10,61.3,10,76.5C10,87.3,17.7,82.5,30.3,88.8z" />
+    </svg>
+  );
+
+
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center">
-        <div className="flex items-center space-x-4 md:space-x-6">
-           <Link href="/" className="flex items-center space-x-2">
+        <div className="mr-4 md:mr-6 md:flex">
+          <Link href="/" className="flex items-center space-x-2">
+            <Logo />
             <span className="font-bold text-xl">SRIVE</span>
           </Link>
-          <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
-            <NavContent />
-          </nav>
         </div>
+        <nav className="hidden md:flex flex-1 items-center space-x-6 text-sm font-medium">
+          <NavContent />
+        </nav>
 
-        <div className="flex flex-1 items-center justify-end space-x-2">
+        <div className="flex items-center justify-end space-x-2 md:flex-initial">
             <Button asChild variant="ghost" size="icon" className="relative" aria-label="Wishlist">
               <Link href="/wishlist">
                 <Heart className="h-5 w-5" />
@@ -166,6 +179,7 @@ export function Header() {
                 <div className="flex flex-col h-full">
                   <div className="flex items-center justify-between border-b pb-4">
                     <Link href="/" className="flex items-center space-x-2" onClick={() => setMobileMenuOpen(false)}>
+                        <Logo />
                         <span className="font-bold text-xl">SRIVE</span>
                     </Link>
                   </div>
