@@ -6,7 +6,7 @@ export const mockOrders: Order[] = [
     id: 'SRV73629',
     date: '2024-07-15',
     status: 'Delivered',
-    total: 239.98,
+    total: 23998,
     items: [
       {
         product: products.find(p => p.id === '1')!,
@@ -24,7 +24,7 @@ export const mockOrders: Order[] = [
     id: 'SRV64910',
     date: '2024-08-01',
     status: 'Shipped',
-    total: 300.00,
+    total: 30000,
     items: [
       {
         product: products.find(p => p.id === '3')!,
@@ -42,7 +42,7 @@ export const mockOrders: Order[] = [
     id: 'SRV50219',
     date: '2024-08-10',
     status: 'Processing',
-    total: 299.99,
+    total: 29999,
     items: [
       {
         product: products.find(p => p.id === '6')!,

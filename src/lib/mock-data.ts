@@ -121,6 +121,34 @@ export const products: Product[] = [
     category: 'Shoes',
     dataAiHint: 'leather boots',
   },
+  {
+    id: '9',
+    name: 'Classic Leather Belt',
+    description: 'A timeless leather belt to complete any outfit.',
+    price: 99,
+    images: [
+      'https://picsum.photos/seed/belt1/800/1000',
+      'https://picsum.photos/seed/belt2/800/1000',
+    ],
+    sizes: ['32', '34', '36', '38'],
+    colors: ['Black', 'Brown'],
+    category: 'Accessories',
+    dataAiHint: 'leather belt',
+  },
+  {
+    id: '10',
+    name: 'Cotton Ankle Socks (3-Pack)',
+    description: 'Comfortable and breathable cotton socks for everyday wear.',
+    price: 89,
+    images: [
+      'https://picsum.photos/seed/socks1/800/1000',
+      'https://picsum.photos/seed/socks2/800/1000',
+    ],
+    sizes: ['One Size'],
+    colors: ['White', 'Black', 'Grey'],
+    category: 'Accessories',
+    dataAiHint: 'cotton socks',
+  },
 ];
 
 export const shopTheLookItems = {
