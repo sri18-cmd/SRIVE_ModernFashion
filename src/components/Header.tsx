@@ -121,17 +121,17 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center">
-        <div className="mr-4 md:mr-6 md:flex">
-          <Link href="/" className="flex items-center space-x-2">
+        <div className="flex items-center">
+          <Link href="/" className="flex items-center space-x-2 mr-6">
             <Logo />
             <span className="font-bold text-xl">SRIVE</span>
           </Link>
+          <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
+            <NavContent />
+          </nav>
         </div>
-        <nav className="hidden md:flex flex-1 items-center space-x-6 text-sm font-medium">
-          <NavContent />
-        </nav>
 
-        <div className="flex items-center justify-end space-x-2 md:flex-initial">
+        <div className="flex flex-1 items-center justify-end space-x-2">
             <Button asChild variant="ghost" size="icon" className="relative" aria-label="Wishlist">
               <Link href="/wishlist">
                 <Heart className="h-5 w-5" />
