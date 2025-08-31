@@ -104,14 +104,14 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-16 items-center">
-        <div className="mr-auto flex items-center">
+      <div className="container flex h-16 items-center justify-between">
+        <div className="flex items-center gap-4">
           <Sheet open={isMobileMenuOpen} onOpenChange={setMobileMenuOpen}>
             <SheetTrigger asChild>
               <Button
                 variant="ghost"
                 size="icon"
-                className="md:hidden mr-2"
+                className="md:hidden"
                 aria-label="Open menu"
               >
                 <Menu className="h-5 w-5" />
@@ -136,7 +136,7 @@ export function Header() {
             </SheetContent>
           </Sheet>
 
-          <Link href="/" className="mr-6 flex items-center space-x-2">
+          <Link href="/" className="flex items-center space-x-2">
             <span className="font-bold text-xl">SRIVE</span>
           </Link>
           <nav className="hidden md:flex items-center space-x-8 text-sm font-medium">
@@ -163,9 +163,7 @@ export function Header() {
                 )}
               </Link>
             </Button>
-            <Button variant="ghost" size="icon" aria-label="Search">
-              <Search className="h-5 w-5" />
-            </Button>
+            
             <Button asChild variant="ghost" size="icon" className="relative" aria-label="Shopping Cart">
               <Link href="/cart">
                 <ShoppingCart className="h-5 w-5" />
@@ -173,6 +171,9 @@ export function Header() {
                    <Badge variant="destructive" className="absolute -top-1 -right-1 h-4 w-4 justify-center p-0 text-xs">{cartCount}</Badge>
                 )}
               </Link>
+            </Button>
+            <Button variant="ghost" size="icon" aria-label="Search">
+              <Search className="h-5 w-5" />
             </Button>
         </div>
       </div>

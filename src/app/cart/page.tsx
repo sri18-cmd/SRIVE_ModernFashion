@@ -1,16 +1,46 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useAppContext } from "@/context/AppContext";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { ShoppingCart, Trash2 } from "lucide-react";
+import { auth } from "@/lib/firebase";
+import { onAuthStateChanged, User as FirebaseUser } from "firebase/auth";
+import { useToast } from "@/hooks/use-toast";
 
 export default function CartPage() {
   const { cart, removeFromCart, updateCartQuantity, cartTotal, cartCount } = useAppContext();
+  const [user, setUser] = useState<FirebaseUser | null>(null);
+  const [loading, setLoading] = useState(true);
+  const router = useRouter();
+  const { toast } = useToast();
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+      setLoading(false);
+    });
+    return () => unsubscribe();
+  }, []);
+
+  const handleCheckout = () => {
+    if (!user) {
+      toast({
+        variant: "destructive",
+        title: "Authentication Required",
+        description: "Please log in to proceed to checkout.",
+      });
+      router.push('/login');
+    } else {
+      router.push('/checkout');
+    }
+  };
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -69,8 +99,8 @@ export default function CartPage() {
                 </div>
               </CardContent>
               <CardFooter>
-                <Button asChild size="lg" className="w-full">
-                  <Link href="/checkout">Proceed to Checkout</Link>
+                <Button size="lg" className="w-full" onClick={handleCheckout} disabled={loading}>
+                  Proceed to Checkout
                 </Button>
               </CardFooter>
             </Card>
