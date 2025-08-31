@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState } from 'react';
@@ -125,6 +126,7 @@ export default function ProductsPage() {
            <ProductSection title="Shirts" products={productsByCat['Shirts'] || []} />
            <ProductSection title="T-Shirts" products={productsByCat['T-Shirts'] || []} />
            <ProductSection title="Trousers" products={productsByCat['Trousers'] || []} />
+           <ProductSection title="Watches" products={productsByCat['Watches'] || []} />
            <ProductSection title="Shoes" products={productsByCat['Shoes'] || []} />
            <ProductSection title="Accessories" products={productsByCat['Accessories'] || []} />
         </main>

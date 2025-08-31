@@ -1,3 +1,4 @@
+
 import type { Product } from './types';
 
 export const products: Product[] = [
@@ -6,7 +7,7 @@ export const products: Product[] = [
     name: 'Urban Explorer Jacket',
     description:
       'A versatile and stylish jacket designed for the modern urban explorer. Water-resistant fabric with a comfortable inner lining.',
-    price: 8999,
+    price: 6999,
     images: [
       'https://picsum.photos/seed/jacket1/800/1000',
       'https://picsum.photos/seed/jacket2/800/1000',
@@ -21,7 +22,7 @@ export const products: Product[] = [
     name: 'Flowy Linen Trousers',
     description:
       'Lightweight and breathable linen trousers, perfect for warm weather. Features a relaxed fit and an elasticated waistband for ultimate comfort.',
-    price: 4499,
+    price: 2499,
     images: [
       'https://picsum.photos/seed/trousers1/800/1000',
       'https://picsum.photos/seed/trousers2/800/1000',
@@ -36,7 +37,7 @@ export const products: Product[] = [
     name: 'Classic Oxford Shirt',
     description:
       'A timeless wardrobe staple. This Oxford shirt is made from 100% premium cotton for a soft feel and a sharp look.',
-    price: 3799,
+    price: 1799,
     images: [
       'https://picsum.photos/seed/shirt1/800/1000',
       'https://picsum.photos/seed/shirt2/800/1000',
@@ -51,7 +52,7 @@ export const products: Product[] = [
     name: 'Minimalist Leather Tote',
     description:
       'Crafted from genuine Italian leather, this tote bag combines functionality with minimalist elegance. Spacious enough for your daily essentials.',
-    price: 11999,
+    price: 7999,
     images: [
       'https://picsum.photos/seed/tote1/800/1000',
       'https://picsum.photos/seed/tote2/800/1000',
@@ -66,7 +67,7 @@ export const products: Product[] = [
     name: 'Cashmere Blend Scarf',
     description:
       'Stay warm and stylish with this incredibly soft cashmere blend scarf. The perfect accessory for chilly days.',
-    price: 4999,
+    price: 2999,
     images: [
       'https://picsum.photos/seed/scarf1/800/1000',
       'https://picsum.photos/seed/scarf2/800/1000',
@@ -81,7 +82,7 @@ export const products: Product[] = [
     name: 'Tailored Wool Blazer',
     description:
       'A beautifully tailored single-breasted blazer made from fine Italian wool. Fully lined with a structured shoulder for a sharp silhouette.',
-    price: 17999,
+    price: 12999,
     images: [
       'https://picsum.photos/seed/blazer1/800/1000',
       'https://picsum.photos/seed/blazer2/800/1000',
@@ -96,7 +97,7 @@ export const products: Product[] = [
     name: 'Ribbed Knit Sweater',
     description:
       'A cozy and chic ribbed knit sweater with a mock neck design. Made from a soft merino wool blend.',
-    price: 6499,
+    price: 4499,
     images: [
       'https://picsum.photos/seed/sweater1/800/1000',
       'https://picsum.photos/seed/sweater2/800/1000',
@@ -111,7 +112,7 @@ export const products: Product[] = [
     name: 'Leather Ankle Boots',
     description:
       'Versatile and comfortable, these ankle boots are crafted from smooth leather and feature a sturdy block heel and side zip closure.',
-    price: 9999,
+    price: 6999,
     images: [
       'https://picsum.photos/seed/boots1/800/1000',
       'https://picsum.photos/seed/boots2/800/1000',
@@ -125,7 +126,7 @@ export const products: Product[] = [
     id: '9',
     name: 'Classic Leather Belt',
     description: 'A timeless leather belt to complete any outfit.',
-    price: 79,
+    price: 49,
     images: [
       'https://picsum.photos/seed/belt1/800/1000',
       'https://picsum.photos/seed/belt2/800/1000',
@@ -139,7 +140,7 @@ export const products: Product[] = [
     id: '10',
     name: 'Cotton Ankle Socks (3-Pack)',
     description: 'Comfortable and breathable cotton socks for everyday wear.',
-    price: 69,
+    price: 39,
     images: [
       'https://picsum.photos/seed/socks1/800/1000',
       'https://picsum.photos/seed/socks2/800/1000',
@@ -153,7 +154,7 @@ export const products: Product[] = [
     id: '11',
     name: 'Graphic Print T-Shirt',
     description: 'A soft cotton t-shirt with a unique graphic print. Perfect for a casual, expressive look.',
-    price: 1299,
+    price: 999,
     images: ['https://picsum.photos/seed/tshirt1/800/1000'],
     sizes: ['S', 'M', 'L', 'XL'],
     colors: ['Washed Black', 'White'],
@@ -164,7 +165,7 @@ export const products: Product[] = [
     id: '12',
     name: 'Slim Fit Chinos',
     description: 'Classic slim-fit chinos crafted from comfortable stretch cotton. A versatile staple for any wardrobe.',
-    price: 3499,
+    price: 2499,
     images: ['https://picsum.photos/seed/chinos1/800/1000'],
     sizes: ['30', '32', '34', '36'],
     colors: ['Khaki', 'Navy'],
@@ -175,7 +176,7 @@ export const products: Product[] = [
     id: '13',
     name: 'Vintage Denim Jacket',
     description: 'A timeless denim jacket with a vintage wash and classic detailing. Built to last and gets better with every wear.',
-    price: 7999,
+    price: 5999,
     images: ['https://picsum.photos/seed/denimjacket1/800/1000'],
     sizes: ['S', 'M', 'L'],
     colors: ['Mid Blue'],
@@ -186,7 +187,7 @@ export const products: Product[] = [
     id: '14',
     name: 'Silk Blend Blouse',
     description: 'An elegant blouse made from a luxurious silk blend. Features a delicate drape and a subtle sheen.',
-    price: 5499,
+    price: 3499,
     images: ['https://picsum.photos/seed/blouse1/800/1000'],
     sizes: ['XS', 'S', 'M'],
     colors: ['Ivory', 'Blush Pink'],
@@ -197,12 +198,45 @@ export const products: Product[] = [
     id: '15',
     name: 'Everyday Crewneck T-Shirt',
     description: 'The perfect crewneck t-shirt, made from ultra-soft pima cotton for incredible comfort.',
-    price: 1499,
+    price: 1199,
     images: ['https://picsum.photos/seed/tshirt2/800/1000'],
     sizes: ['S', 'M', 'L', 'XL', 'XXL'],
     colors: ['White', 'Black', 'Heather Grey'],
     category: 'T-Shirts',
     dataAiHint: 'mens t-shirt',
+  },
+  {
+    id: '16',
+    name: 'Chronograph Steel Watch',
+    description: 'A sophisticated chronograph watch with a stainless steel strap and a bold black dial. Perfect for both formal and casual occasions.',
+    price: 14999,
+    images: ['https://picsum.photos/seed/watch1/800/1000'],
+    sizes: ['One Size'],
+    colors: ['Silver/Black'],
+    category: 'Watches',
+    dataAiHint: 'steel watch',
+  },
+  {
+    id: '17',
+    name: 'Minimalist Leather Watch',
+    description: 'A sleek and modern watch featuring a genuine leather strap and a clean, minimalist white dial. Understated elegance.',
+    price: 8999,
+    images: ['https://picsum.photos/seed/watch2/800/1000'],
+    sizes: ['One Size'],
+    colors: ['Brown/White', 'Black/White'],
+    category: 'Watches',
+    dataAiHint: 'leather watch',
+  },
+  {
+    id: '18',
+    name: 'Odyssey Automatic Watch',
+    description: 'A statement timepiece with automatic movement, exposed gears, and a durable silicone strap. For the bold and adventurous.',
+    price: 19999,
+    images: ['https://picsum.photos/seed/watch3/800/1000'],
+    sizes: ['One Size'],
+    colors: ['Black/Rose Gold'],
+    category: 'Watches',
+    dataAiHint: 'automatic watch',
   },
 ];
 
