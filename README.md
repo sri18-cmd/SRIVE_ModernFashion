@@ -1,84 +1,58 @@
-Srive - Modern E-commerce Clothing Brand
-Srive is a full-stack e-commerce platform built for a modern, minimalist clothing brand. It showcases a complete shopping experience, from browsing dynamic product catalogs to a secure, integrated payment checkout. This project is built with performance, security, and a seamless user experience in mind.
+# 🛍️ Srive - Modern E-commerce Clothing Brand  
 
-🚀 Live Demo
-You can view the live, deployed version of the project here:
+Srive is a **full-stack e-commerce platform** built for a modern, minimalist clothing brand. It delivers a complete shopping experience, from browsing a dynamic product catalog to making secure payments.  
 
-https://srive-modern-fashion.vercel.app/
+This project is designed with **performance, security, and a seamless user experience** in mind.  
 
-(Replace the link above with your actual Vercel hosting link)
+---
 
-(Replace the link above with a screenshot of your application)
+## 🚀 Live Demo  
+Check out the live deployed version here:  
+👉 [Srive - Modern Fashion](https://srive-modern-fashion.vercel.app/)  
+---
 
-✨ Features
-👤 User Features
-Secure Authentication: Users can sign up, log in, and log out securely.
+## ✨ Features  
 
-Product Catalog: Browse products with advanced filtering and searching by category, size, color, and price.
+### 👤 User Features  
+- **Secure Authentication**: Sign up, log in, and log out securely.  
+- **Product Catalog**: Browse products with advanced filtering (category, size, color, price).  
+- **Product Details Page**: Multiple images, detailed descriptions, and size info.  
+- **Shopping Cart**: Add/remove items and update quantities.  
+- **Wishlist**: Save favorite items for later.  
+- **Secure Checkout**: Integrated with **Razorpay** for seamless payments.  
+- **Order History**: Track past orders and statuses via the user dashboard.  
 
-Product Details Page: View multiple images, detailed descriptions, and sizing information for each item.
+### 🔒 Admin Features (Upcoming)  
+- **Dashboard**: Sales, orders, and user activity overview.  
+- **Product Management**: Add, edit, or remove products & variants.  
+- **Order Management**: Update customer order statuses.  
+- **User Management**: Manage customer accounts.  
 
-Shopping Cart: Add/remove items and update quantities.
+---
 
-Wishlist: Save favorite items for later.
+## 💻 Tech Stack  
+- **Frontend**: [Next.js](https://nextjs.org/) + [Tailwind CSS](https://tailwindcss.com/)  
+- **Backend**: Next.js API Routes (Serverless, Node.js)  
+- **Database**: [Google Firestore](https://firebase.google.com/docs/firestore)  
+- **Authentication**: [Firebase Authentication](https://firebase.google.com/docs/auth)  
+- **Payment Gateway**: [Razorpay](https://razorpay.com/)  
+- **Deployment**: [Vercel](https://vercel.com/)  
+- **AI/ML (Optional)**: Gemini API for AI-powered product descriptions or recommendations  
 
-Secure Checkout: Integrated with Razorpay for a seamless and secure payment process.
+---
 
-Order History: View past orders and their statuses in a personal dashboard.
+## 🛠️ Getting Started  
 
-🔒 Admin Features (To Be Implemented)
-Dashboard: An overview of sales, orders, and user activity.
+Follow these steps to run the project locally.  
 
-Product Management: Admins can add, edit, and remove products and their variants (size, color, stock).
+### ✅ Prerequisites  
+- [Node.js](https://nodejs.org/) (v18 or later)  
+- npm or yarn  
+- Git  
 
-Order Management: View and update the status of customer orders.
+### ⚡ Installation  
 
-User Management: View and manage customer accounts.
-
-💻 Tech Stack
-This project is built using a modern, scalable tech stack:
-
-Frontend: Next.js (React Framework), Tailwind CSS for styling.
-
-Backend: Next.js API Routes (Serverless Functions), Node.js.
-
-Database: Google Firestore for scalable, real-time data storage.
-
-Authentication: Firebase Authentication for secure user management.
-
-Payment Gateway: Razorpay for processing payments.
-
-Deployment: Vercel for continuous integration and hosting.
-
-AI/ML (Optional): Gemini API for potential features like AI-powered product descriptions or style recommendations.
-
-🛠️ Getting Started
-To get a local copy up and running, follow these simple steps.
-
-Prerequisites
-Node.js (v18 or later)
-
-npm or yarn
-
-Git
-
-Installation
-Clone the repository:
-
-git clone [https://github.com/your-username/srive-project.git](https://github.com/your-username/srive-project.git)
-cd srive-project
-
-(Replace your-username/srive-project.git with your actual repository URL)
-
-Install NPM packages:
-
-npm install
-
-Set up environment variables:
-Create a file named .env.local in the root of your project and add the necessary environment variables. You can copy the structure from the .env.example file below.
-
-Run the development server:
-
-npm run dev
-
-Open http://localhost:3000 with your browser to see the result.
+1. **Clone the repository**:  
+   ```bash
+   git clone https://github.com/your-username/srive-project.git
+   cd srive-project
